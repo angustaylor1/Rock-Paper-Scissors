@@ -1,1 +1,70 @@
 console.log('Hello World!')
+
+function getComputerChoice() {
+    let choice = Math.random();
+    if (choice <= 0.3) {
+        return "ROCK"
+    } else if (choice <= 0.6) {
+        return "PAPER"
+    } else {
+        return "SCISSORS"
+    }
+}
+function getHumanChoice() {
+    let humchoice = prompt("Please enter your choice. Rock, Paper or Scissors: ")
+    if (humchoice.length === 0) {
+        return "Invalid Input"
+    }
+    humchoice = humchoice.toLowerCase()
+    if (humchoice === "rock") {
+        return "ROCK"
+    } else if (humchoice === "paper") {
+        return "PAPER"
+    } else if (humchoice === "scissors") {
+        return "SCISSORS"
+    } else {
+        return "Invalid Input"
+    }
+}
+
+function playRound(humanChoice, compChoice) {
+    if (humanChoice === "ROCK") {
+        if (compChoice === "SCISSORS") {
+            humanScore++
+            return "You win! Rock beats Scissors!"
+        } else if (compChoice === "PAPER") {
+            computerScore++
+            return "You lose! Paper beats Rock!"
+        } else {
+            return "Draw!!!!!!!"
+        }
+    } else if (humanChoice === "PAPER") {
+        if (compChoice === "SCISSORS") {
+            computerScore++
+            return "You lose! Scissors beats Paper!"
+        } else if ( compChoice === "ROCK") {
+            humanScore++
+            return "You win! Paper beats Rock"
+        } else {
+            return "Draw!!!!!!"
+        }
+    } else {
+        if (compChoice === "PAPER") {
+            humanScore++
+            return "You win! Scissors beats Paper!"
+        } else if (compChoice === "ROCK") {
+            compScore++
+            return "You lose! Rock beats Scissors"
+        } else {
+            return "Draw!!!!!!"
+        }
+    }
+
+}
+
+let humanScore = 0
+let computerScore = 0
+
+console.log(getComputerChoice())
+console.log(getHumanChoice())
+console.log(playRound(getHumanChoice(), getComputerChoice()))
