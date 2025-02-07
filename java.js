@@ -31,7 +31,8 @@ function playRound(humanChoice, compChoice) {
     if (humanChoice === "ROCK") {
         if (compChoice === "SCISSORS") {
             humanScore++
-            return "You win! Rock beats Scissors!"
+            let result = "You win! Rock beats Scissors!"
+            return result
         } else if (compChoice === "PAPER") {
             computerScore++
             return "You lose! Paper beats Rock!"
@@ -59,7 +60,12 @@ function playRound(humanChoice, compChoice) {
             return "Draw!!!!!!"
         }
     }
+}
 
+function playGame() {
+    result = playRound(getHumanChoice(), getComputerChoice())
+    console.log(result)
+    console.log("Your Score: ", humanScore, ". Computer Score: ", computerScore, ".")
 }
 
 let humanScore = 0
