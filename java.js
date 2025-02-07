@@ -54,7 +54,7 @@ function playRound(humanChoice, compChoice) {
             humanScore++
             return "You win! Scissors beats Paper!"
         } else if (compChoice === "ROCK") {
-            compScore++
+            computerScore++
             return "You lose! Rock beats Scissors"
         } else {
             return "Draw!!!!!!"
@@ -65,30 +65,30 @@ function playRound(humanChoice, compChoice) {
 function playGame() {
     let result = playRound(getHumanChoice(), getComputerChoice())
     console.log(result)
-    console.log("Your Score: ", humanScore, ". Computer Score: ", computerScore, ".")
+    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
 
     result = playRound(getHumanChoice(), getComputerChoice())
     console.log(result)
-    console.log("Your Score: ", humanScore, ". Computer Score: ", computerScore, ".")
+    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
 
     result = playRound(getHumanChoice(), getComputerChoice())
     console.log(result)
-    console.log("Your Score: ", humanScore, ". Computer Score: ", computerScore, ".")
+    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
 
     result = playRound(getHumanChoice(), getComputerChoice())
     console.log(result)
-    console.log("Your Score: ", humanScore, ". Computer Score: ", computerScore, ".")
+    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
 
     result = playRound(getHumanChoice(), getComputerChoice())
     console.log(result)
-    console.log("Your Score: ", humanScore, ". Computer Score: ", computerScore, ".")
+    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
 
     if (humanScore > computerScore) {
-        return console.log("You Win! By ", humanScore, "points, to", computerScore, "points.")
+        return console.log("You Win! By", humanScore, "points, to", computerScore, "points.")
     } else if (humanScore < computerScore) {
-        return console.log("You Lose:( By ", computerScore, "points, to", humanScore, "points.")
+        return console.log("You Lose:( By", computerScore, "points, to", humanScore, "points.")
     } else {
-        return console.log("Draw! You both had ", humanScore, "points.")
+        return console.log("Draw! You both had", humanScore, "points.")
     }
 }
 
