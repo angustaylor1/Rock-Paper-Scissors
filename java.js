@@ -65,6 +65,4 @@ function playRound(humanChoice, compChoice) {
 let humanScore = 0
 let computerScore = 0
 
-console.log(getComputerChoice())
-console.log(getHumanChoice())
 console.log(playRound(getHumanChoice(), getComputerChoice()))
