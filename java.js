@@ -1,4 +1,4 @@
-console.log('Hello World!')
+
 
 function getComputerChoice() {
     let choice = Math.random();
