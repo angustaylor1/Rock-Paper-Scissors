@@ -78,6 +78,8 @@ function playGame() {
 let humanScore = 0
 let computerScore = 0
 let buttonChoice = document.querySelector(".container")
+const div = document.querySelector("#results")
+const list = document.querySelector("ul")
 
 
 buttonChoice.addEventListener("click", (e) => {
@@ -97,9 +99,10 @@ buttonChoice.addEventListener("click", (e) => {
 
     }
     /* play a round after getting computer choice*/
-    playRound(humanChoice, getComputerChoice())
+    let result = playRound(humanChoice, getComputerChoice())
 
     if (humanScore < 5 && computerScore < 5) {
+        
         
     }
 })
