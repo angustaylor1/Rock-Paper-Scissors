@@ -102,7 +102,8 @@ buttonChoice.addEventListener("click", (e) => {
     let result = playRound(humanChoice, getComputerChoice())
 
     if (humanScore < 5 && computerScore < 5) {
-        
+        const listItem = document.createElement("li")
+        const span = document.createElement("span")
         
     }
 })
