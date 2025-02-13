@@ -81,7 +81,8 @@ let buttonChoice = document.querySelector("#container")
 const div = document.querySelector("#results")
 const resultList = document.querySelector("#round-results")
 const scoreList = document.querySelector("#round-scores")
-const listItem = document.createElement("li")
+const resultItem = document.createElement("li")
+const scoreItem = document.createElement("li")
 const roundResult = document.createElement("span")
 const currentScore = document.createElement("span")
 
@@ -104,22 +105,24 @@ buttonChoice.addEventListener("click", (e) => {
     }
     /* play a round after getting computer choice*/
     let result = playRound(humanChoice, getComputerChoice())
+    
 
     if (humanScore < 5 && computerScore < 5) {
         roundResult.textContent = result
-        currentScore.textContent = ("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
-        listItem.appendChild(roundResult)
-        listItem.appendChild(currentScore)
-        resultList.appendChild(listItem)
+        currentScore.textContent = (`Your Score: ${humanScore} Computer Score: ${computerScore}.`)
+        resultItem.appendChild(roundResult)
+        resultList.appendChild(resultItem)
+        scoreItem.appendChild(currentScore)
+        scoreList.appendChild(scoreItem)
     
     } else if (humanScore === 5) {
         roundResult.textContent = "You Win! By", humanScore, "points, to", computerScore, "points.";
-        listItem.appendChild(roundResult)
-        resultList.appendChild(listItem)
+        resultItem.appendChild(roundResult)
+        resultList.appendChild(resultItem)
     } else {
         roundResult.textContent = "You Lose:( By", computerScore, "points, to", humanScore, "points."
-        listItem.appendChild(roundResult)
-        resultList.appendChild(listItem)
+        resultItem.appendChild(roundResult)
+        resultList.appendChild(resultItem)
     }
 })
 
