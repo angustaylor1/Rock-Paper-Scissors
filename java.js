@@ -63,26 +63,11 @@ function playRound(humanChoice, compChoice) {
 }
 
 function playGame() {
-    let result = playRound(getHumanChoice(), getComputerChoice())
+    while (humanScore < 5 && computerScore <5) {
+    let result = playRound(getHumanChoice(), getComputerChoice()) 
     console.log(result)
     console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
-
-    result = playRound(getHumanChoice(), getComputerChoice())
-    console.log(result)
-    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
-
-    result = playRound(getHumanChoice(), getComputerChoice())
-    console.log(result)
-    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
-
-    result = playRound(getHumanChoice(), getComputerChoice())
-    console.log(result)
-    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
-
-    result = playRound(getHumanChoice(), getComputerChoice())
-    console.log(result)
-    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
-
+    }
     if (humanScore > computerScore) {
         return console.log("You Win! By", humanScore, "points, to", computerScore, "points.")
     } else if (humanScore < computerScore) {
