@@ -10,23 +10,6 @@ function getComputerChoice() {
         return "SCISSORS"
     }
 }
-/*function getHumanChoice() {
-    let humchoice = prompt("Please enter your choice. Rock, Paper or Scissors: ")
-    if (humchoice.length === 0) {
-        return "Invalid Input"
-    }
-    humchoice = humchoice.toLowerCase()
-    if (humchoice === "rock") {
-        return "ROCK"
-    } else if (humchoice === "paper") {
-        return "PAPER"
-    } else if (humchoice === "scissors") {
-        return "SCISSORS"
-    } else {
-        return "Invalid Input"
-    }
-}*/
-
 function playRound(humanChoice, compChoice) {
     if (humanChoice === "ROCK") {
         if (compChoice === "SCISSORS") {
@@ -62,29 +45,15 @@ function playRound(humanChoice, compChoice) {
     }
 }
 
-function playGame() {
-    let result = playRound(getHumanChoice(), getComputerChoice()) 
-    console.log(result)
-    console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
-    if (humanScore > computerScore) {
-        return console.log("You Win! By", humanScore, "points, to", computerScore, "points.")
-    } else if (humanScore < computerScore) {
-        return console.log("You Lose:( By", computerScore, "points, to", humanScore, "points.")
-    } else {
-        return console.log("Draw! You both had", humanScore, "points.")
-    }
-}
-
 let humanScore = 0
 let computerScore = 0
 let buttonChoice = document.querySelector("#container")
 const div = document.querySelector("#results")
 const resultList = document.querySelector("#round-results")
 const scoreList = document.querySelector("#round-scores")
-const resultItem = document.createElement("li")
-const scoreItem = document.createElement("li")
-const roundResult = document.createElement("span")
-const currentScore = document.createElement("span")
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors = document.querySelector("#scissors")
 
 
 buttonChoice.addEventListener("click", (e) => {
@@ -108,22 +77,55 @@ buttonChoice.addEventListener("click", (e) => {
     
 
     if (humanScore < 5 && computerScore < 5) {
+        const resultItem = document.createElement("li")
+        const scoreItem = document.createElement("li")
+        const roundResult = document.createElement("span")
+        const currentScore = document.createElement("span")
         roundResult.textContent = result
         currentScore.textContent = (`Your Score: ${humanScore} Computer Score: ${computerScore}.`)
         resultItem.appendChild(roundResult)
         resultList.appendChild(resultItem)
         scoreItem.appendChild(currentScore)
-        scoreList.appendChild(scoreItem)
+        scoreList.prepend(scoreItem)
     
     } else if (humanScore === 5) {
-        roundResult.textContent = "You Win! By", humanScore, "points, to", computerScore, "points.";
+        const resultItem = document.createElement("li")
+        const scoreItem = document.createElement("li")
+        const roundResult = document.createElement("span")
+        const currentScore = document.createElement("span")
+        roundResult.textContent = (`You Win! By ${humanScore} points, to ${computerScore} points.`)
         resultItem.appendChild(roundResult)
-        resultList.appendChild(resultItem)
+        resultList.prepend(resultItem)
+        buttonChoice.removeChild(rock)
+        buttonChoice.removeChild(paper)
+        buttonChoice.removeChild(scissors)
+        const reset = document.createElement("button")
+        reset.textContent = "Reset?"
+        reset.setAttribute("style", "padding: 5px 10px; background-color: black; color: white;")
+        buttonChoice.append(reset)
+        reset.addEventListener("click", () => {
+            location.reload();
+        })
     } else {
-        roundResult.textContent = "You Lose:( By", computerScore, "points, to", humanScore, "points."
+        const resultItem = document.createElement("li")
+        const scoreItem = document.createElement("li")
+        const roundResult = document.createElement("span")
+        const currentScore = document.createElement("span")
+        roundResult.textContent = (`You Lose:( By ${computerScore} points, to ${humanScore}`)
         resultItem.appendChild(roundResult)
-        resultList.appendChild(resultItem)
+        resultList.prepend(resultItem)
+        buttonChoice.removeChild(rock)
+        buttonChoice.removeChild(paper)
+        buttonChoice.removeChild(scissors)
+        const reset = document.createElement("button")
+        reset.textContent = "Reset?"
+        reset.setAttribute("style", "padding: 5px 10px; background-color: black; color: white;")
+        buttonChoice.append(reset)
+        reset.addEventListener("click", () => {
+            location.reload();
+        })
     }
 })
+
 
 
