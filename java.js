@@ -10,7 +10,7 @@ function getComputerChoice() {
         return "SCISSORS"
     }
 }
-function getHumanChoice() {
+/*function getHumanChoice() {
     let humchoice = prompt("Please enter your choice. Rock, Paper or Scissors: ")
     if (humchoice.length === 0) {
         return "Invalid Input"
@@ -25,7 +25,7 @@ function getHumanChoice() {
     } else {
         return "Invalid Input"
     }
-}
+}*/
 
 function playRound(humanChoice, compChoice) {
     if (humanChoice === "ROCK") {
@@ -63,11 +63,9 @@ function playRound(humanChoice, compChoice) {
 }
 
 function playGame() {
-    while (humanScore < 5 && computerScore <5) {
     let result = playRound(getHumanChoice(), getComputerChoice()) 
     console.log(result)
     console.log("Your Score:", humanScore, ". Computer Score:", computerScore, ".")
-    }
     if (humanScore > computerScore) {
         return console.log("You Win! By", humanScore, "points, to", computerScore, "points.")
     } else if (humanScore < computerScore) {
@@ -79,5 +77,31 @@ function playGame() {
 
 let humanScore = 0
 let computerScore = 0
+let buttonChoice = document.querySelector(".container")
 
-console.log(playGame())
+
+buttonChoice.addEventListener("click", (e) => {
+    let target = e.target
+    let humanChoice = ""
+    /* Find out what button was pressed and assign human choice*/
+    switch(target.id) {
+        case "rock":
+            humanChoice = "ROCK";
+            break;
+        case "paper":
+            humanChoice = "PAPER";
+            break;
+        case "scissors":
+            humanChoice = "SCISSORS";
+            break;
+
+    }
+    /* play a round after getting computer choice*/
+    playRound(humanChoice, getComputerChoice())
+
+    if (humanScore < 5 && computerScore < 5) {
+        
+    }
+})
+
+
